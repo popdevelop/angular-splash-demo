@@ -1,0 +1,78 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Slideshow style */
+.splash {
+    position: fixed;
+    background: rgba(0,0,0,0.85);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+    -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+.splash-open.splash {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+
+.splash .splash-inner {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translate3d(0,0,150px);
+    transform: translate3d(0,0,150px);
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+}
+
+
+.splash-open.splash .splash-inner {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.splash .splash-content {
+    width: 660px;
+    height: 350px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin: -175px 0 0 -330px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.splash-content h1 {
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+
+.btn-outline {
+    margin-top: 40px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    background-color: transparent;
+    width: 250px;
+    font-weight: 300;
+}
+.btn-outline:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
