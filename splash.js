@@ -10,11 +10,11 @@ angular.module('splashDemo', ['ui.splash'])
 }]);
 
 // Re-usable $splash module
-angular.module('ui.splash', ['ui.bootstrap'])
+angular.module('ui.splash', ['ui.bootstrap', 'ngAnimate'])
 .service('$splash', [
-  '$modal',
+  '$uibModal',
   '$rootScope',
-  function($modal, $rootScope) {
+  function($uibModal, $rootScope) {
     return {
       open: function (attrs, opts) {
         var scope = $rootScope.$new();
@@ -25,7 +25,7 @@ angular.module('ui.splash', ['ui.bootstrap'])
           templateUrl: 'splash/content.html',
           windowTemplateUrl: 'splash/index.html'
         });
-        return $modal.open(opts);
+        return $uibModal.open(opts);
       }
     };
   }
@@ -34,7 +34,7 @@ angular.module('ui.splash', ['ui.bootstrap'])
   '$templateCache',
   function ($templateCache) {
     $templateCache.put('splash/index.html',
-      '<section class="splash" ng-class="{\'splash-open\': animate}" ng-style="{\'z-index\': 1000, display: \'block\'}" ng-click="close($event)">' +
+      '<section modal-render="{{$isRendered}}" class="splash" modal-in-class="splash-open" ng-style="{\'z-index\': 1000, display: \'block\'}" ng-click="close($event)">' +
       '  <div class="splash-inner" ng-transclude></div>' +
       '</section>'
     );
